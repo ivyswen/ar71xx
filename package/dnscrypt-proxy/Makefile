@@ -61,8 +61,8 @@ TARGET_CFLAGS += \
 define Package/dnscrypt-proxy/install
 	$(INSTALL_DIR) $(1)/opt/sbin
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/sbin/dnscrypt-proxy $(1)/opt/sbin
-	$(INSTALL_DIR) $(1)/opt/etc/init.d
-	$(INSTALL_BIN) ./files/S09dnscrypt-proxy $(1)/opt/etc/init.d/
+	$(INSTALL_DIR) $(1)/etc/init.d
+	$(INSTALL_BIN) ./files/S09dnscrypt-proxy $(1)/etc/init.d/
 endef
 
 define Package/dnscrypt-proxy-hostip/install

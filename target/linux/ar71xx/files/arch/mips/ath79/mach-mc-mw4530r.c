@@ -183,8 +183,8 @@ static void __init mw4530r_setup(void)
 	ath79_register_eth(0);
 
 	gpio_request_one(MW4530R_GPIO_USB_POWER,
-			 GPIOF_OUT_INIT_HIGH | GPIOF_EXPORT_DIR_FIXED,
-			 "USB power");
+                     GPIOF_OUT_INIT_HIGH | GPIOF_EXPORT_DIR_FIXED,
+                     "USB power");
 	ath79_register_usb();
 }
 

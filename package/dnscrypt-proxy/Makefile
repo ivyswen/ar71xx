@@ -59,15 +59,17 @@ TARGET_CFLAGS += \
 	-fPIC
 
 define Package/dnscrypt-proxy/install
-	$(INSTALL_DIR) $(1)/opt/sbin
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/sbin/dnscrypt-proxy $(1)/opt/sbin
+	$(INSTALL_DIR) $(1)/usr/sbin
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/sbin/dnscrypt-proxy $(1)/usr/sbin
 	$(INSTALL_DIR) $(1)/etc/init.d
-	$(INSTALL_BIN) ./files/S09dnscrypt-proxy $(1)/etc/init.d/
+	$(INSTALL_BIN) ./files/dnscrypt-proxy.init $(1)/etc/init.d/dnscrypt-proxy
+	$(INSTALL_DIR) $(1)/etc/config
+	$(INSTALL_CONF) ./files/dnscrypt-proxy.config $(1)/etc/config/dnscrypt-proxy
 endef
 
 define Package/dnscrypt-proxy-hostip/install
-	$(INSTALL_DIR) $(1)/opt/sbin
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/hostip $(1)/opt/sbin/dnscrypt-proxy-hostip
+	$(INSTALL_DIR) $(1)/usr/sbin
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/hostip $(1)/usr/sbin/dnscrypt-proxy-hostip
 endef
 
 $(eval $(call BuildPackage,dnscrypt-proxy))
